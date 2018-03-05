@@ -94,7 +94,8 @@ export default class TodoDetailsComponent extends React.Component {
                             onChangeText={(text) => newTask = text}
                         />*/}
                     <Item rounded
-                          style={styles.textInput}>
+                          style={styles.textInput}
+                    >
                         <Input
                             ref={input => {
                                 this.textInputMax = input
@@ -102,6 +103,7 @@ export default class TodoDetailsComponent extends React.Component {
                             placeholder="Add note"
                             placeholderTextColor={Colors.grey}
                             onChangeText={(text) => newTask = text }
+
                         />
                     </Item>
 
@@ -132,7 +134,6 @@ const styles = StyleSheet.create({
     viewContainer: {
         backgroundColor: Colors.white,
         flex: 1,
-        marginTop: 24,
     },
     viewDivider: {
         borderBottomColor: Colors.grey,
@@ -172,10 +173,12 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor:'rgba(0,0,0,0.2)',
         height: 45,
+        // width: 300,
         backgroundColor: Colors.white,
         borderRadius: 100,
         zIndex: 15,
         bottom: 24,
+        // color: Colors.white
     },
     textAddMore: {
         fontSize: 18,

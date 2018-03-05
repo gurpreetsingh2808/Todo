@@ -1,5 +1,4 @@
 import axios from 'axios';
-import ConnectivityUtil from '../utilities/connectivity';
 import Properties from '../properties';
 import Strings from "../app_assets/strings";
 
@@ -42,8 +41,18 @@ class Api {
         // return this.xhr(route, params, 'POST')
     }
 
-    static delete(route, params) {
-        return this.xhr(route, params, 'DELETE')
+    static remove(route) {
+        const host = Properties.url_base;
+        const url = `${host}${route}`;
+        return axios.delete(url)
+            .then(function (response) {
+                console.log(response);
+                if (response.status === 200) {
+                    return response;
+                } else {
+                    _handleError(Strings.error + ` ${response.status}, ${response.statusText}`);
+                }
+            });
     }
 
     static xhr(route, params, verb) {
@@ -55,17 +64,17 @@ class Api {
         return axios.get(url, options)
             .then(function (response) {
                 console.log(response);
-            if (response.status === 200) {
-                return response;
-            } else {
-                _handleError(Strings.error + ` ${response.status}, ${response.statusText}`);
-            }
-        });
+                if (response.status === 200) {
+                    return response;
+                } else {
+                    _handleError(Strings.error + ` ${response.status}, ${response.statusText}`);
+                }
+            });
     }
 
 
     static buildConfig(url, params, method, data) {
-        let options ;
+        let options;
         //= Object.assign({method: verb}, params ? {body: JSON.stringify(params)} : null);
         options.headers = Api.headers();
         options.baseURL = Properties.url_base;
@@ -75,7 +84,7 @@ class Api {
         options.data = data;
         options.timeout = 30 * 1000;
 
-        console.log("options "+options);
+        console.log("options " + options);
         // return options;
     }
 }
