@@ -5,19 +5,9 @@ import Colors from "../../app_assets/colors";
 import AppStyles from "./../../app_assets/app_styles"
 
 const datas = [
-    'Simon Mignolet',
-    'Nathaniel Clyne',
-    'Dejan Lovren',
-    'Mama Sakho',
-    'Alberto Moreno',
-    'Emre Can',
-    'Joe Allen',
-    'Phil Coutinho',
-    'Alan Baldwin',
-    'Erlich Bachman',
-    'Peter Gregory',
-    'Gilfoyle',
-    'Richard Hendricks'
+    'Work',
+    'Personal',
+    'Archive',
 ];
 
 export default class TodoListComponent extends React.Component {
@@ -46,7 +36,7 @@ export default class TodoListComponent extends React.Component {
     render() {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         return (
-            <Container>
+            <Container style= {{backgroundColor: Colors.white}}>
                 <Content>
                     <List
                         dataSource={this.ds.cloneWithRows(this.state.listViewData)}

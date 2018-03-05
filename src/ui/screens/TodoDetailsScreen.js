@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     viewContainer: {
         backgroundColor: Colors.white,
         flex: 1,
+        marginTop: 24,
     },
     viewDivider: {
         borderBottomColor: Colors.grey,
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
         marginRight: 84,
         borderWidth: 2,
         borderColor:'rgba(0,0,0,0.2)',
-        height: 50,
+        height: 45,
         backgroundColor: Colors.white,
         borderRadius: 100,
         zIndex: 15,
