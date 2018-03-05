@@ -1,21 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar, View} from 'react-native';
+import Navigator from "./src/ui/Navigator";
+import Colors from "./src/app_assets/colors";
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+        <View style={{flex: 1}}>
+          <StatusBar
+              backgroundColor={Colors.colorPrimary}
+              barStyle="light-content"
+          />
+          <Navigator/>
+        </View>    );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
